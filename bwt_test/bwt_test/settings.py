@@ -58,7 +58,8 @@ RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408, 429]
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': None,
+    'bwt_test.middlewares.Response429RetryMiddleware': 90,
     'bwt_test.middlewares.ProxyMiddleware': 100,
     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
 }
@@ -99,6 +100,13 @@ PROXY_LIST = [
     'http://103.141.123.2:41674'
 ]
 
+# Validation of the selected location
+# just comment if you don't need to check
+ENABLED_LOCATIONS = ['NY', 'LA', 'SF']
+
+# Validation of the selected category
+# just comment if you don't need to check
+ENABLED_CATEGORIES = ['restaurants', 'gym', 'spa']
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
