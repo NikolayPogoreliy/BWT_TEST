@@ -42,7 +42,5 @@ def update_or_create(session, table, filter_query, attrs, do_commit=True):
             session.commit()
         except:
             session.rollback()
-        finally:
-            session.close()
     return instance
 

@@ -21,4 +21,5 @@ class BwtTestItemToDbPipeline:
         attrs = {'location': location.id, 'category': category.id}
         attrs.update(item)
         update_or_create(session, Organization, filter_query, attrs)
+        session.close()
         return item
